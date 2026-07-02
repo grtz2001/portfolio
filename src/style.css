@@ -1,0 +1,75 @@
+/* ============================================================
+   Global styles & design tokens for the portfolio.
+   Palette + type taken from the Home design (Space Grotesk +
+   JetBrains Mono, indigo accent on near-white / ink surfaces).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Surfaces */
+  --surface-page: #edeff2;
+  --surface-card: #ffffff;
+  --surface-muted: #fafbfc;
+  --surface-lavender: #f1f0fc;
+  --surface-nav-pill: #eeedfc;
+  --surface-chip: #f7f8fa;
+  --surface-ink: #14161a;
+
+  /* Text */
+  --text-heading: #14161a;
+  --text-body: #5b616e;
+  --text-muted: #6b707a;
+  --text-faint: #8a8f99;
+  --text-on-ink: #f7f8fa;
+  --text-on-ink-muted: #9ca1a9;
+
+  /* Accent (indigo) */
+  --accent: #4f46e5;
+  --accent-on-ink: #a5a0f5;
+  --accent-soft-border: #c7c3f4;
+  --accent-soft-line: #cfcdef;
+
+  /* Lines & borders */
+  --border: #e4e7ec;
+  --border-strong: #d5d8de;
+  --line: #dadde2;
+
+  /* Type */
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --page-max: 1160px;
+  --page-pad-x: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #dcd9fb;
+}
+
+a {
+  color: inherit;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page-pad-x: 22px;
+  }
+}
