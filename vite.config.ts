@@ -19,5 +19,6 @@ function spaFallback(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/portfolio/',
   plugins: [vue(), spaFallback()],
 })
