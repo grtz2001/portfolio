@@ -19,5 +19,9 @@ function spaFallback(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
+  // TODO: revert to '/' once the gratzia.is-a.dev custom domain is live —
+  // this is only here so GitHub Pages can serve the project page at
+  // grtz2001.github.io/portfolio/ in the meantime.
+  base: '/portfolio/',
   plugins: [vue(), spaFallback()],
 })
