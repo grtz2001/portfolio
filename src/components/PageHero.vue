@@ -7,6 +7,8 @@ withDefaults(
     lede: string
     /** Bottom padding in px (designs vary slightly per page). */
     padBottom?: number
+    /** Constrains the title width so it wraps like the design (e.g. '20ch'). */
+    titleMaxWidth?: string
   }>(),
   { padBottom: 50 },
 )
@@ -15,7 +17,7 @@ withDefaults(
 <template>
   <section class="page-hero" :style="{ paddingBottom: `${padBottom}px` }">
     <div class="page-hero__eyebrow"><span class="page-hero__path">~/</span>{{ eyebrow }}</div>
-    <h1 class="page-hero__title">{{ title }}</h1>
+    <h1 class="page-hero__title" :style="titleMaxWidth ? { maxWidth: titleMaxWidth } : undefined">{{ title }}</h1>
     <p class="page-hero__lede">{{ lede }}</p>
   </section>
 </template>

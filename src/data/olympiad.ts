@@ -1,9 +1,4 @@
-/** Content for the Olympiad page. */
-
-export interface Stat {
-  num: string
-  label: string
-}
+/** Content for the Olympiad (math) page. */
 
 export interface Role {
   role: string
@@ -13,34 +8,33 @@ export interface Role {
   points: string[]
 }
 
-export const stats: Stat[] = [
-  { num: '7', label: 'years with OMEC' },
-  { num: '4', label: 'EGMO editions' },
-  { num: '2', label: 'PAGMO editions coordinated' },
-  { num: '123', label: 'Problem 4 scripts graded' },
+export const ongoing: string[] = [
+  'Grade papers for the National Math Olympiad and team-selection tests — a regular, year-round commitment.',
+  "Join OMEC's exam-setting calls to help decide which problems appear on national competitions.",
+  "Run and support training sessions for Ecuador's upcoming international delegations.",
 ]
 
 export const roles: Role[] = [
   {
-    role: 'Deputy Leader, Ecuadorian National Team',
-    org: 'Ecuadorian Mathematical Organization (OMEC)',
+    role: 'Deputy Leader, National Team',
+    org: 'OMEC · EGMO & TJM',
     when: '2019 — Present',
-    where: 'EGMO 2020, 2021, 2022 · EGMO 2026 (Bordeaux, France) · Remote',
+    where: '4 × EGMO · 1 × TJM',
     points: [
-      "Lead selection, training and international coordination of Ecuador's team at the European Girls' Mathematical Olympiad (EGMO).",
-      'Coach national representatives in Geometry and Number Theory ahead of international competitions including the IMO and EGMO.',
-      "Oversee end-to-end logistics for Ecuador's National Math Olympiad — exam coordination, grading and candidate evaluation at scale.",
+      'Served as Deputy Leader for four editions of the European Girls’ Mathematical Olympiad (EGMO) and one TJM, coordinating Ecuador’s delegation on-site and remotely.',
+      'Coached national representatives in Geometry and Number Theory in the lead-up to international competitions.',
+      'Managed logistics and communication with organizers, guiding students through every stage of the event.',
     ],
   },
   {
     role: 'Problem Coordinator — Problem 4',
     org: "Pan-American Girls' Mathematical Olympiad (PAGMO)",
     when: '2021 & 2022',
-    where: '1st Edition (Number Theory, 2021) · 2nd Edition (Geometry, 2022) · Remote',
+    where: 'First two editions · Remote',
     points: [
-      'Served on the three-person coordination committee for Problem 4 across both editions of PAGMO, an international competition for girls.',
+      'Coordinated Problem 4 for the inaugural two editions of PAGMO, an international competition for girls.',
       'Authored complete solutions and detailed marking schemes, setting rigorous, consistent grading criteria for an international field.',
-      'Graded every Problem 4 submission (59 in 2021, 64 in 2022) and ran coordination meetings with team leaders to finalize scores and adjudicate appeals.',
+      'Graded every Problem 4 submission and ran coordination meetings with team leaders to finalize scores and adjudicate appeals.',
     ],
   },
 ]

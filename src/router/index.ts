@@ -6,7 +6,10 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'home',
     component: HomeView,
-    meta: { title: 'home' },
+    meta: {
+      title: 'home',
+      footer: 'Open to full-stack and research-adjacent opportunities, and open to relocation.',
+    },
   },
   {
     path: '/projects',
