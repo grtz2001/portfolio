@@ -14,7 +14,8 @@ export interface SocialLink {
 export const email = 'grtz2001@gmail.com'
 
 export const navLinks: NavLink[] = [
-  { label: 'work', to: '/' },
+  { label: 'home', to: '/' },
+  { label: 'projects', to: '/projects' },
   { label: 'research', to: '/research' },
   { label: 'education', to: '/education' },
   { label: 'math', to: '/olympiad' },

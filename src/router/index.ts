@@ -6,7 +6,16 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'home',
     component: HomeView,
-    meta: { title: 'Work' },
+    meta: { title: 'home' },
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: () => import('../views/ProjectsView.vue'),
+    meta: {
+      title: 'Projects',
+      footer: 'Open to full-stack and research-adjacent opportunities, and open to relocation.',
+    },
   },
   {
     path: '/research',
