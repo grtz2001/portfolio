@@ -17,6 +17,9 @@ function onKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape') closeModal()
 }
 
+const repoLabel = (repo: string) =>
+  repo.includes('gitlab') ? 'view_on_gitlab' : 'view_on_github'
+
 watch(open, (v) => {
   if (v != null) {
     window.addEventListener('keydown', onKeydown)
@@ -37,7 +40,8 @@ onBeforeUnmount(() => {
   <PageHero
     eyebrow="projects"
     title="Things I've built"
-    lede="A selection of full-stack, data-visualization and coursework projects — from crime-mapping SPAs to scientific databases. Each one taught me something about turning messy inputs into interfaces people actually enjoy."
+    title-max-width="18ch"
+    lede="A mix of coursework, personal builds and AI systems design — from crime-mapping SPAs and scientific databases to React apps and Python recommenders. Each one taught me something about turning messy inputs into interfaces people actually enjoy."
   />
 
   <section class="projects">
@@ -58,7 +62,7 @@ onBeforeUnmount(() => {
         <p class="project__summary">{{ p.summary }}</p>
         <div class="project__footer">
           <div class="project__tech">
-            <span v-for="t in p.tech" :key="t" class="project__tech-item">{{ t }}</span>
+            <span v-for="t in p.tech.slice(0, 3)" :key="t" class="project__tech-item">{{ t }}</span>
           </div>
           <span class="project__open">open →</span>
         </div>
@@ -83,6 +87,9 @@ onBeforeUnmount(() => {
           <div class="modal__tech">
             <span v-for="t in active.tech" :key="t" class="modal__chip">{{ t }}</span>
           </div>
+          <a class="modal__repo" :href="active.repo" target="_blank" rel="noopener">
+            {{ repoLabel(active.repo) }} →
+          </a>
         </div>
       </div>
     </Teleport>
@@ -91,26 +98,27 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .projects {
-  padding: 12px var(--page-pad-x) 56px;
-  background: var(--surface-muted);
+  padding: 48px var(--page-pad-x) 8px;
+  background: var(--surface-lavender);
   border-top: 1px solid var(--border);
 }
 
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  padding-top: 34px;
+  gap: 20px;
+  padding-bottom: 60px;
 }
 
 .project {
   background: var(--surface-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  box-shadow: 0 1px 3px rgba(20, 22, 26, 0.05);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .project:hover {
@@ -132,7 +140,7 @@ onBeforeUnmount(() => {
 
 .project__name {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.15;
   color: var(--text-heading);
   margin: 9px 0 10px;
@@ -140,7 +148,7 @@ onBeforeUnmount(() => {
 
 .project__summary {
   font-weight: 400;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--text-muted);
   margin: 0 0 16px;
@@ -273,6 +281,29 @@ onBeforeUnmount(() => {
   border-radius: 6px;
   color: var(--text-body);
   background: var(--surface-chip);
+}
+
+.modal__repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--surface-ink);
+  padding: 11px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.modal__repo:hover {
+  background: #2b2f37;
+}
+.modal__repo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 960px) {

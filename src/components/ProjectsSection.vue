@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onBeforeUnmount } from 'vue'
+import { RouterLink } from 'vue-router'
 import SectionLabel from './SectionLabel.vue'
 import { projects } from '../data/home'
 
@@ -35,7 +36,11 @@ onBeforeUnmount(() => {
 
 <template>
   <section id="projects" class="projects">
-    <SectionLabel number="02" label="selected_projects" variant="ink" />
+    <SectionLabel number="02" label="selected_projects" variant="ink">
+      <template #right>
+        <RouterLink to="/projects" class="projects__view-all">view_all →</RouterLink>
+      </template>
+    </SectionLabel>
     <div class="projects__grid">
       <article
         v-for="(p, i) in projects"
@@ -89,6 +94,17 @@ onBeforeUnmount(() => {
   padding: 46px var(--page-pad-x) 52px;
   background: var(--surface-muted);
   border-top: 1px solid var(--border);
+}
+
+.projects__view-all {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.projects__view-all:hover {
+  color: #3730a3;
 }
 
 .projects__grid {

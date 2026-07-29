@@ -24,5 +24,5 @@ export const navLinks: NavLink[] = [
 export const socialLinks: SocialLink[] = [
   { label: email, href: `mailto:${email}`, accent: true },
   { label: 'linkedin.com/in/gratzia', href: 'https://linkedin.com/in/gratzia' },
-  { label: 'github.com/gratzia', href: 'https://github.com/gratzia' },
+  { label: 'github.com/grtz2001', href: 'https://github.com/grtz2001' },
 ]

@@ -17,6 +17,7 @@ withDefaults(
     <span class="section-label__text">{{ label }}</span>
     <span class="section-label__line"></span>
     <span v-if="rightText" class="section-label__right">{{ rightText }}</span>
+    <slot name="right" />
   </div>
 </template>
 
