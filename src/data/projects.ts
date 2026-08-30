@@ -3,6 +3,9 @@
 export interface Project {
   name: string
   tag: string
+  year: number
+  /** Manual rank for the default "featured" sort — lower shows first. Reflects scope/skill, not recency. */
+  featured: number
   summary: string
   detail: string
   tech: string[]
@@ -13,6 +16,8 @@ export const projects: Project[] = [
   {
     name: 'Monitoring Crimes in St. Paul',
     tag: 'Web Dev · CISC 375',
+    year: 2024,
+    featured: 5,
     summary:
       'A single-page app that maps St. Paul crime data, stitched together from three separate data sources.',
     detail:
@@ -23,6 +28,8 @@ export const projects: Project[] = [
   {
     name: 'Microbialites Database',
     tag: 'Database Design · CISC 450',
+    year: 2024,
+    featured: 3,
     summary:
       'A full-stack tool to collect, display and manage a geology research database with clean CRUD operations.',
     detail:
@@ -33,6 +40,8 @@ export const projects: Project[] = [
   {
     name: 'Global Power Plant Explorer',
     tag: 'Web Dev · CISC 375',
+    year: 2024,
+    featured: 11,
     summary:
       'A dynamic server that filters a worldwide power-plant database and rebuilds the results table on the fly.',
     detail:
@@ -43,6 +52,8 @@ export const projects: Project[] = [
   {
     name: 'Commit Timeline Dashboard',
     tag: 'Capstone · CISC 480',
+    year: 2024,
+    featured: 4,
     summary:
       'chart.js visualizations of student commit activity over time, built in the controller layer and fully unit-tested.',
     detail:
@@ -51,18 +62,10 @@ export const projects: Project[] = [
     repo: 'https://gitlab.codesmell.org/ust/root',
   },
   {
-    name: 'Receipt Processor Challenge',
-    tag: 'Coding Challenge',
-    summary:
-      'A take-home API challenge (Fetch Rewards) that processes receipts and awards points by a set of rules.',
-    detail:
-      'A solution to the Fetch Rewards receipt-processor take-home: a small web service that accepts a receipt, applies a set of point-scoring rules, and returns the points earned. A focused exercise in building a spec-driven REST API.',
-    tech: ['REST API'],
-    repo: 'https://github.com/inda4434/receipt-processor-challenge',
-  },
-  {
     name: 'Study Squad (Crewmates)',
     tag: 'Web Development',
+    year: 2026,
+    featured: 7,
     summary:
       'Build your own study-buddy squad — a full CRUD app with a persistent database backend.',
     detail:
@@ -73,6 +76,8 @@ export const projects: Project[] = [
   {
     name: 'Bored Dashboard',
     tag: 'Data Visualization',
+    year: 2026,
+    featured: 8,
     summary:
       'A dashboard for exploring things to do when you’re bored, with charts and drill-down detail pages.',
     detail:
@@ -83,6 +88,8 @@ export const projects: Project[] = [
   {
     name: 'Vidi — Movie Discovery',
     tag: 'Web Development',
+    year: 2026,
+    featured: 9,
     summary:
       'Discover new movies by genre, language and runtime — keep the ones you like, ban the ones you don’t.',
     detail:
@@ -91,8 +98,10 @@ export const projects: Project[] = [
     repo: 'https://github.com/grtz2001/veni-vici',
   },
   {
-    name: 'Learn Spanish Flashcards',
+    name: 'Learn Spanish — Flashcards',
     tag: 'Web Development',
+    year: 2026,
+    featured: 12,
     summary:
       'An interactive flashcard app for learning Spanish, with guess-checking and card flipping.',
     detail:
@@ -101,8 +110,10 @@ export const projects: Project[] = [
     repo: 'https://github.com/grtz2001/flashcards',
   },
   {
-    name: 'Ecuador World Cup Community Board',
+    name: 'Ecuador World Cup — Community Board',
     tag: 'Web Development',
+    year: 2026,
+    featured: 13,
     summary:
       'A community board covering Ecuador’s World Cup run — post, browse and discuss.',
     detail:
@@ -113,6 +124,8 @@ export const projects: Project[] = [
   {
     name: 'Music Recommender Simulation',
     tag: 'AI / Systems Design',
+    year: 2026,
+    featured: 10,
     summary: 'A small music recommender that scores songs against a user’s taste profile.',
     detail:
       'A Python recommender that represents songs and a user "taste profile" as data, then scores each song by how closely it matches. Numeric features (energy, valence, danceability) score by closeness while genre and mood are exact matches; scores are averaged, sorted, and the top picks returned. Includes reflection on what the system gets right and wrong and how it mirrors real-world recommenders.',
@@ -122,6 +135,8 @@ export const projects: Project[] = [
   {
     name: 'PawPal+',
     tag: 'AI / Systems Design',
+    year: 2026,
+    featured: 6,
     summary:
       'A Streamlit assistant that builds a daily pet-care plan from tasks, priorities and constraints.',
     detail:
@@ -130,13 +145,27 @@ export const projects: Project[] = [
     repo: 'https://github.com/grtz2001/ai110-module2show-pawpal-starter',
   },
   {
-    name: 'Game Glitch Investigator',
-    tag: 'AI / Debugging',
+    name: 'AI Guessing Coach',
+    tag: 'AI / Agent Systems',
+    year: 2026,
+    featured: 1,
     summary:
-      'A debugging challenge — track down and fix state and logic bugs in a broken Streamlit guessing game.',
+      'A number-guessing game turned retrieval-augmented coach — an agent plans, retrieves strategy notes and tips your next move, with safety guardrails on every response.',
     detail:
-      'A Python/Streamlit exercise centered on diagnosing a broken number-guessing game: the secret number resets on every click and the higher/lower hints lie. The work is finding the Streamlit session-state bug, fixing the comparison logic, and restoring correct game behavior — a focused study in state management and debugging.',
-    tech: ['Python', 'Streamlit'],
-    repo: 'https://github.com/grtz2001/ai110-module1show-gameglitchinvestigator-starter',
+      'Built on top of a debugged number-guessing game, this project adds a four-step agent loop: plan a retrieval query from the current game state, pull matching strategy notes from a small markdown knowledge base via a custom TF-IDF search, generate a coaching tip, then validate it against guardrails that block anything revealing the secret number or suggesting an invalid guess. Every interaction is logged to JSON so the agent’s reasoning stays auditable, and violations are redacted rather than dropped silently. It runs fully offline on deterministic rules with no API key, or calls Claude for more natural coaching when credentials are present — covered by a 37-test pytest suite plus an evaluation harness.',
+    tech: ['Python', 'Streamlit', 'TF-IDF', 'Anthropic Claude API', 'pytest'],
+    repo: 'https://github.com/grtz2001/ai-guessing-coach',
+  },
+  {
+    name: 'Encore — HobbyHub',
+    tag: 'Web Development',
+    year: 2026,
+    featured: 2,
+    summary:
+      'A social platform for Broadway fans — post, browse, comment, upvote and repost, with pseudo-auth and no traditional login.',
+    detail:
+      'A React/Vite social app for sharing and discussing Broadway shows, backed by Supabase. Users create posts with titles, descriptions and image URLs, browse a feed sortable by date or upvotes, search by title, and comment or upvote (unlimited votes, no cap) on individual post pages. A reposting feature lets users reference an original post to build threads, and post creators can edit or delete their own entries. Authentication is pseudo — secret keys or random user IDs — skipping a traditional login system while still tracking who posted what.',
+    tech: ['React', 'Vite', 'Supabase', 'Oxlint'],
+    repo: 'https://github.com/grtz2001/HobbyHub',
   },
 ]

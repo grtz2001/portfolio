@@ -3,7 +3,6 @@
 defineProps<{ label: string; star?: boolean }>()
 </script>
 
-<!-- add random comment -->
 <template>
   <span class="pill">
     <span v-if="star" class="pill__star">★</span>{{ label }}
